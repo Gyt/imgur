@@ -10,7 +10,7 @@ module Imgurapi
 
       @client_id = options[:client_id]
       @client_secret = options[:client_secret]
-      @access_token = options[:access_token]
+      @access_token = options[:access_token] || ''
       @refresh_token = options[:refresh_token]
       @use_ssl = !!options[:use_ssl]
     end
