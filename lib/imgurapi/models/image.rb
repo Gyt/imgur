@@ -4,7 +4,7 @@ module Imgurapi
     IMGUR_HOST = 'i.imgur.com'
     IMAGE_EXTENSION = 'jpg' # jpg is the default extension for every Imgur image
 
-    def link(use_ssl = false)
+    def link(use_ssl = true)
       protocol = if use_ssl
                    'https://'
                  else
@@ -16,11 +16,13 @@ module Imgurapi
 
     # Provides the download URL in case you know a valid imgur hash and don't want to make a network trip with .find
     # Just in case you don't need the full Imgurapi::Image object
-    def url(size: nil, use_ssl: false)
+    def url(size = nil, use_ssl = true)
       size = case size
-             when :small_square, :small, :s
-               's'
-             when :large_thumbnail, :large, :l
+             when :small, :s
+               't'
+             when :medium, :m
+               'm'
+             when :large, :l
                'l'
              else
                ''
