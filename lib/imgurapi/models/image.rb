@@ -18,17 +18,15 @@ module Imgurapi
     # Just in case you don't need the full Imgurapi::Image object
     def url(size = nil, use_ssl = true)
       size = case size
-             when :small, :s
-               't'
-             when :medium, :m
-               'm'
-             when :large, :l
+             when :small_square, :small, :s
+               's'
+             when :large_thumbnail, :large, :l
                'l'
              else
                ''
              end
 
-      splitted_link = link(use_ssl).split('.')
+      splitted_link = link().split('.')
       splitted_link[splitted_link.size - 2] << size
       splitted_link.join '.'
     end
