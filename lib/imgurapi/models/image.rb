@@ -18,8 +18,10 @@ module Imgurapi
     # Just in case you don't need the full Imgurapi::Image object
     def url(size = nil, use_ssl = true)
       size = case size
-             when :small_square, :small, :s
-               's'
+             when :big_square, :square, :b
+               'b'
+             when :medium_thumbnail, :medium, :m
+               'm'
              when :large_thumbnail, :large, :l
                'l'
              else
